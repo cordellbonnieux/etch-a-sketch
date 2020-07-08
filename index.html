@@ -38,6 +38,9 @@
             <div id="container">
             </div>
         </div>
+    <div id="buttons">
+
+    </div>
     </div>
 </body>
 </html>
@@ -55,5 +58,14 @@
             item.style.cssText = "background-color:#959095; border-radius:10px;";
         });
     });
+    const buttonContainer = document.querySelector('#buttons');
+    let clearButton = document.createElement('button');
+    clearButton.classList.add("clear");
+    clearButton.innerHTML = "Clear";
+    clearButton.style.cssText = "display:inline-block; height:75px; border:2px dotted #959095; width:75px; border-radius:75px; background-color:#fff;";
+    buttonContainer.appendChild(clearButton);
+    // here I need to link the clear button with each cell and change them back to white!
+
+    //after that add in two buttons one for the 32x32 grid and another for 16x16 grid.
 </script>
 </DOCTYPE>
