@@ -1,1 +1,1 @@
-# etch-a-sketch
+This project will be an etch-a-sketch which you can draw on using either your mouse or your finger (on mobile devices). It is part of the Odin Project's Web Development 101 class.
