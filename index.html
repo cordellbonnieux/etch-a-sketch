@@ -1,10 +1,15 @@
-<DOCTYPE html>
+<DOCTYPE HTML>
 <html>
 <head>
-    <style>
+<meta CHARSET="utf-8">
+    <style type="text/css">
+        body{
+            text-align:center;
+        }
         #wrapper{
             display:inline-block;
-            margin:50px auto;
+            width:320px;
+            margin:100px auto;
         }
         #container{
             display:grid;
@@ -16,30 +21,36 @@
             background-color:pink;
             margin:0;
         }
-            .cell{
+           /* .cell{
                 height:8px; 
                 width:8px; 
                 background-color:red;
                 border: 1px solid #000;
-            }
+            }*/
     </style>
     <title>Etch-A-Sketch</title>
 </head>
 <body>
     <div id="wrapper">
+        <h1>Etch-A-Sketch</h1>
         <div id="container">
-
         </div>
     </div>
 </body>
 </html>
-<script>
+<script type="text/javascript">
+    let singleSquare;
     for (let i = 0; i < 1024; i++){
         const drawingContainer = document.querySelector('#container');
-        const singleSquare = document.createElement('div');
+        singleSquare = document.createElement('div');
         singleSquare.classList.add("cell");
-        singleSquare.style.cssText = "";
+        singleSquare.style.cssText = "height:8px; width:8px; background-color:red; border:1px solid #000;";
         drawingContainer.appendChild(singleSquare);
     }
+    document.querySelectorAll('.cell').forEach(item => {
+        item.addEventListener('mouseover', event => {
+            item.style.cssText = "background-color:pink; border:1px dotted green;";
+        });
+    });
 </script>
 </DOCTYPE>
