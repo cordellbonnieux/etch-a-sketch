@@ -29,7 +29,7 @@
             border:4px solid #000;
             width:384px;
             height:384px;
-            /*overflow:hidden;*/
+            overflow:hidden;
         }
         #buttons{
             text-align:left;
@@ -61,7 +61,7 @@
     }
     document.querySelectorAll('.cell').forEach(item => {
         item.addEventListener('mouseover', event => {
-            item.style.cssText = "background-color:#959095; border-radius:10px;";
+            item.style.cssText = "background-color:#959095;";
         });
     });
     const buttonContainer = document.querySelector('#buttons');
@@ -76,6 +76,10 @@
             item.style.borderColor = "#ffffff";
         });
         document.querySelectorAll('.cell-sixteen').forEach(item =>{
+            item.style.backgroundColor = "#fff";
+            item.style.borderColor = "#fff";
+        });
+        document.querySelectorAll('.cell-custom').forEach(item =>{
             item.style.backgroundColor = "#fff";
             item.style.borderColor = "#fff";
         });
@@ -98,6 +102,11 @@
             item.style.backgroundColor = "#fff";
             item.style.borderColor = "#fff";
         });
+        document.querySelectorAll('.cell-custom').forEach(item =>{
+            item.style.backgroundColor = "#fff";
+            item.style.borderColor = "#fff";
+            item.style.display = "none";
+        });
         sixteenButton.style.display = "none";
         thirtytwoButton.style.display = "inline-block";
         //hide the old grid
@@ -115,7 +124,7 @@
         document.querySelector('#container').style.cssText = "grid-template-columns: repeat(16, 1fr); grid-template-rows: repeat(16, 1fr);"
         document.querySelectorAll('.cell-sixteen').forEach(item => {
         item.addEventListener('mouseover', event => {
-            item.style.cssText = "background-color:#959095; border-radius:22px;";
+            item.style.cssText = "background-color:#959095;";
         });
     });
     });
@@ -124,6 +133,11 @@
         document.querySelectorAll('.cell-sixteen').forEach(item =>{
             item.style.backgroundColor = "#fff";
             item.style.borderColor = "#fff";
+        });
+        document.querySelectorAll('.cell-custom').forEach(item =>{
+            item.style.backgroundColor = "#fff";
+            item.style.borderColor = "#fff";
+            item.style.display = "none";
         });
         sixteenButton.style.display = "inline-block";
         thirtytwoButton.style.display = "none";
@@ -154,11 +168,29 @@
             item.style.borderColor = "#fff";
             item.style.display = "none";
         });
-        let userNumber = prompt('Please enter a custom drawing grid size.');
+        document.querySelectorAll('.cell-custom').forEach(item =>{
+            item.style.backgroundColor = "#fff";
+            item.style.borderColor = "#fff";
+            item.style.display = "none";
+        });
+        let userNumber = prompt('Please enter a custom drawing grid size(number).');
         let userGrid = parseInt(userNumber);
-        for (let i = 0; i < (userGrid.length * userGrid.length); i++){
-            
+        // below here needs work
+        for (let i = 0; i < (userGrid * userGrid); i++){
+            singleSquare = document.createElement('div');
+            singleSquare.classList.add("cell-custom");
+            singleSquare.style.cssText = "display:inline-block;";
+            drawingContainer.appendChild(singleSquare);
         }
+        document.querySelector('#container').style.cssText = `grid-template-columns: repeat(${userGrid}, 1fr); grid-template-rows: repeat(${userGrid}, 1fr);`;
+        document.querySelectorAll('.cell-custom').forEach(item => {
+        item.addEventListener('mouseover', event => {
+            item.style.cssText = `background-color:#959095;`;
+        });
+    });
+    // on click on the "color" change the color of the mouseover and the button to say "grey".
+
+    // on click on the "grey" button change the color of the mouseover to grey and the button to say color.
     });
 
 </script>
