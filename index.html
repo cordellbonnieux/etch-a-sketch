@@ -29,6 +29,10 @@
             border:4px solid #000;
             width:384px;
             height:384px;
+            /*overflow:hidden;*/
+        }
+        #buttons{
+            text-align:left;
         }
     </style>
     <title>Etch-A-Sketch</title>
@@ -64,7 +68,7 @@
     let clearButton = document.createElement('button');
     clearButton.classList.add("clear");
     clearButton.innerHTML = "Clear";
-    clearButton.style.cssText = "display:inline-block; height:75px; border:2px dotted #959095; width:75px; border-radius:75px; background-color:#fff;";
+    clearButton.style.cssText = "margin:15px 25px; display:inline-block; height:75px; border:2px dotted #959095; width:75px; border-radius:75px; background-color:#fff;";
     buttonContainer.appendChild(clearButton);
     document.querySelector('.clear').addEventListener('click', event =>{
         document.querySelectorAll('.cell').forEach(item =>{
@@ -80,13 +84,13 @@
     const sixteenButton = document.createElement('button');
     sixteenButton.classList.add("sixteen");
     sixteenButton.innerHTML = "16x16";
-    sixteenButton.style.cssText = "display:inline-block; height:75px; border:2px dotted #959095; width:75px; border-radius:75px; background-color:#fff;";
+    sixteenButton.style.cssText = "float:none; margin:15px 25px; display:inline-block; height:75px; border:2px dotted #959095; width:75px; border-radius:75px; background-color:#fff;";
     buttonContainer.appendChild(sixteenButton);
     // 32x32
     const thirtytwoButton = document.createElement('button');
     thirtytwoButton.classList.add("thirtytwo");
     thirtytwoButton.innerHTML = "32x32";
-    thirtytwoButton.style.cssText = "display:none; height:75px; border:2px dotted #959095; width:75px; border-radius:75px; background-color:#fff;";
+    thirtytwoButton.style.cssText = "float:none; margin:15px 25px; display:none; height:75px; border:2px dotted #959095; width:75px; border-radius:75px; background-color:#fff;";
     buttonContainer.appendChild(thirtytwoButton);
     // change to 16..
     document.querySelector('.sixteen').addEventListener('click', event =>{
@@ -132,6 +136,29 @@
             item.style.display = "inline-block";
         });
         document.querySelector('#container').style.cssText = "grid-template-columns: repeat(32, 1fr); grid-template-rows: repeat(32, 1fr);"
+    });
+    // custom grid
+    const customButton = document.createElement('button');
+    customButton.classList.add("custom");
+    customButton.innerHTML = "Custom";
+    customButton.style.cssText = "float:none; margin:15px 25px; display:inline-block; height:75px; border:2px dotted #959095; width:75px; border-radius:75px; background-color:#fff;";
+    buttonContainer.appendChild(customButton);
+    document.querySelector('.custom').addEventListener('click', event =>{
+        document.querySelectorAll('.cell').forEach(item =>{
+            item.style.backgroundColor = "#fff";
+            item.style.borderColor = "#fff";
+            item.style.display = "none";
+        });
+        document.querySelectorAll('.cell-sixteen').forEach(item =>{
+            item.style.backgroundColor = "#fff";
+            item.style.borderColor = "#fff";
+            item.style.display = "none";
+        });
+        let userNumber = prompt('Please enter a custom drawing grid size.');
+        let userGrid = parseInt(userNumber);
+        for (let i = 0; i < (userGrid.length * userGrid.length); i++){
+            
+        }
     });
 
 </script>
