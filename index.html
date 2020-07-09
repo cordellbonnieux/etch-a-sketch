@@ -64,8 +64,16 @@
     clearButton.innerHTML = "Clear";
     clearButton.style.cssText = "display:inline-block; height:75px; border:2px dotted #959095; width:75px; border-radius:75px; background-color:#fff;";
     buttonContainer.appendChild(clearButton);
-    // here I need to link the clear button with each cell and change them back to white!
-
+    document.querySelector('.clear').addEventListener('click', event =>{
+        document.querySelectorAll('.cell').forEach(item =>{
+            item.style.backgroundColor = "#ffffff";
+        });
+    });
     //after that add in two buttons one for the 32x32 grid and another for 16x16 grid.
+    const sixteenButton = document.createElement('button');
+    clearButton.classList.add("sixteen");
+    sixteenButton.innerHTML = "16x16";
+    sixteenButton.style.cssText = "display:inline-block; height:75px; border:2px dotted #959095; width:75px; border-radius:75px; background-color:#fff;";
+    buttonContainer.appendChild(sixteenButton);
 </script>
 </DOCTYPE>
