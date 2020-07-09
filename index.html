@@ -71,6 +71,10 @@
             item.style.backgroundColor = "#ffffff";
             item.style.borderColor = "#ffffff";
         });
+        document.querySelectorAll('.cell-sixteen').forEach(item =>{
+            item.style.backgroundColor = "#fff";
+            item.style.borderColor = "#fff";
+        });
     });
     // 16x16 grid.
     const sixteenButton = document.createElement('button');
@@ -86,32 +90,49 @@
     buttonContainer.appendChild(thirtytwoButton);
     // change to 16..
     document.querySelector('.sixteen').addEventListener('click', event =>{
+        document.querySelectorAll('.cell').forEach(item =>{
+            item.style.backgroundColor = "#fff";
+            item.style.borderColor = "#fff";
+        });
         sixteenButton.style.display = "none";
         thirtytwoButton.style.display = "inline-block";
-        //remove old grid
+        //hide the old grid
         document.querySelectorAll('.cell').forEach(item =>{
             item.style.display = "none";
         });
         // add new grid with less items
         for (let i = 0; i < 256; i++){
             singleSquare = document.createElement('div');
-            singleSquare.classList.add("cell");
+            singleSquare.classList.add("cell-sixteen");
             singleSquare.style.cssText = "height:22px; width:22px; background-color:#fff;";
             drawingContainer.appendChild(singleSquare);
         }
         //reduce the number of grids
         document.querySelector('#container').style.cssText = "grid-template-columns: repeat(16, 1fr); grid-template-rows: repeat(16, 1fr);"
-        document.querySelectorAll('.cell').forEach(item => {
+        document.querySelectorAll('.cell-sixteen').forEach(item => {
         item.addEventListener('mouseover', event => {
             item.style.cssText = "background-color:#959095; border-radius:22px;";
         });
     });
     });
-
     // change to 32...
     document.querySelector('.thirtytwo').addEventListener('click', event =>{
+        document.querySelectorAll('.cell-sixteen').forEach(item =>{
+            item.style.backgroundColor = "#fff";
+            item.style.borderColor = "#fff";
+        });
         sixteenButton.style.display = "inline-block";
         thirtytwoButton.style.display = "none";
+        //hide the new grid
+        document.querySelectorAll('.cell-sixteen').forEach(item =>{
+            item.style.display = "none";
+        });
+        //show the old grid
+            document.querySelectorAll('.cell').forEach(item =>{
+            item.style.display = "inline-block";
+        });
+        document.querySelector('#container').style.cssText = "grid-template-columns: repeat(32, 1fr); grid-template-rows: repeat(32, 1fr);"
     });
+
 </script>
 </DOCTYPE>
