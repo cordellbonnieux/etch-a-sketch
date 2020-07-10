@@ -194,14 +194,13 @@
             item.style.borderColor = "#fff";
             item.style.display = "none";
         });
-        let userNumber = prompt('Please enter a custom drawing grid size (a number between 2 and 100).');
+        let userNumber = prompt('Please enter a custom drawing grid size (a number between 2 and 64).');
         let userGrid = parseInt(userNumber);
-        if (userGrid > 100 || userGrid < 2){
-            alert('Your custom grid number must be between 2 and 100.');
+        if (userGrid > 64 || userGrid < 2){
+            alert('Your custom grid number must be between 2 and 64.');
             location.reload(); 
-
         }
-        for (let i = 0; i < (userGrid * userGrid) && userGrid <= 100; i++){
+        for (let i = 0; i < (userGrid * userGrid) && userGrid <= 64; i++){
             singleSquare = document.createElement('div');
             singleSquare.classList.add("cell-custom");
             singleSquare.style.cssText = "display:inline-block;";
